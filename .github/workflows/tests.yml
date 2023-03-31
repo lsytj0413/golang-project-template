@@ -12,6 +12,8 @@ jobs:
       - run: date
       - name: Test
         run: make test
+      - name: Lint
+        run: make lint
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v3
         with:
