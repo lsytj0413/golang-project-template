@@ -13,6 +13,11 @@ import (
 	"github.com/lsytj0413/golang-project-template/pkg/utils"
 )
 
+// Reponser ...
+type Reponser[T any] interface {
+	Message(T) T
+}
+
 // nolint
 type HelloServer struct {
 	pb.UnimplementedHelloServiceServer
