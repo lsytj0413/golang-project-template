@@ -3,6 +3,7 @@ module github.com/lsytj0413/golang-project-template
 go 1.20
 
 require (
+	github.com/golang/mock v1.6.0
 	github.com/golang/protobuf v1.5.3
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.15.2
 	github.com/onsi/gomega v1.27.5

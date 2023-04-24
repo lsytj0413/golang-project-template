@@ -9,3 +9,6 @@ comment:
       default:
         target: 80%
         threshold: 5%
+
+ignore:
+  - "pkg/server/mocks/*"

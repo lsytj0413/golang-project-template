@@ -141,10 +141,11 @@ clean:
 
 MOCKGEN := $(BIN_DIR)/mockgen
 .PHONY: mock
-mock: $(MOCKGEN) 
+mock: $(MOCKGEN)
+	mockgen -source=pkg/server/server.go -destination=pkg/server/mocks/server.go -package=mocks
 
 $(MOCKGEN):
-	go install github.com/golang/mock/mockgen@v1.6.0
+	go install github.com/golang/mock/mockgen@v1.7.0-rc.1
 
 addheaders:
 	@command -v addlicense > /dev/null || go install -v github.com/google/addlicense@v0.0.0-20210428195630-6d92264d7170
