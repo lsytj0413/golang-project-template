@@ -36,10 +36,11 @@ import (
 // < Content-Length: 74
 // <
 // * Connection #0 to host 127.0.0.1 left intact
-// {"Message":"Hello lsytj0413!","CurrentTime":"2023-03-30T02:11:57.619397Z"}* Closing connection 0
+// {"Message":"Hello lsytj0413!","CurrentTime":"2023-03-30T02:11:57.619397Z"}* Closing connection 0.
 func main() {
 	fmt.Printf("%s\n", version.Get().Pretty())
 
+	//nolint
 	lis, err := net.Listen("tcp", "0.0.0.0:8080")
 	if err != nil {
 		panic(err)
