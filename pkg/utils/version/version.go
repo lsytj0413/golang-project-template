@@ -42,13 +42,13 @@ type Info struct {
 	Platform     string `json:"platform"`
 }
 
-// Pretty returns a pretty output representation of Info
+// Pretty returns a pretty output representation of Info.
 func (info Info) Pretty() string {
 	str, _ := json.MarshalIndent(info, "", "    ")
 	return string(str)
 }
 
-// String returns the marshalled json string of Info
+// String returns the marshalled json string of Info.
 func (info Info) String() string {
 	str, _ := json.Marshal(info)
 	return string(str)

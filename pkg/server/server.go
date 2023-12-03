@@ -18,17 +18,17 @@ type Reponser[T any] interface {
 	Message(T) T
 }
 
-// nolint
+//nolint
 type HelloServer struct {
 	pb.UnimplementedHelloServiceServer
 }
 
-// nolint
+//nolint
 func NewHelloServer() *HelloServer {
 	return &HelloServer{}
 }
 
-// nolint
+//nolint
 func (s *HelloServer) Hello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloResponse, error) {
 	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
