@@ -168,3 +168,32 @@ $(PROTOCGRPC):
 $(PROTOCGATEWAY):
 	go install -v github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2
 	go install -v github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2
+
+proto-clean:
+	rm -rf ./pb
+
+proto-format:
+	# At macos, you can install clang-format with: brew install clang-format
+	clang-format -i --style=Google proto/*.proto
+
+PROTOLINT := $(BIN_DIR)/protoc-gen-protolint
+proto-lint: $(PROTOLINT)
+	protoc --proto_path ./proto \
+		--protolint_out . \
+		--protolint_opt config_dir_path=. \
+		--protolint_opt proto_root=./proto \
+		proto/*.proto
+
+$(PROTOLINT):
+	go install -v github.com/yoheimuta/protolint/cmd/protoc-gen-protolint@v0.47.4
+
+PROTODOC := $(BIN_DIR)/protoc-gen-doc
+proto-doc: $(PROTODOC)
+	protoc --doc_out=doc/proto \
+		-I ./proto \
+		--doc_opt=markdown,proto.md \
+		proto/*.proto
+
+
+$(PROTODOC):
+	go install -v github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@v1.5.1
