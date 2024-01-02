@@ -14,6 +14,7 @@ jobs:
         run: make test
       - name: Lint
         run: make lint
+      - run: make license-check
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v3
         with:
