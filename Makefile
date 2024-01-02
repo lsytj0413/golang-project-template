@@ -147,10 +147,6 @@ mock: $(MOCKGEN)
 $(MOCKGEN):
 	go install github.com/golang/mock/mockgen@v1.7.0-rc.1
 
-addheaders:
-	@command -v addlicense > /dev/null || go install -v github.com/google/addlicense@v0.0.0-20210428195630-6d92264d7170
-	@addlicense -c "The Songlin Yang Authors" -l mit .
-
 PROTOCGO := $(BIN_DIR)/protoc-gen-go
 PROTOCGRPC := $(BIN_DIR)/protoc-gen-go-grpc
 PROTOCGATEWAY := $(BIN_DIR)/protoc-gen-grpc-gateway
@@ -194,6 +190,13 @@ proto-doc: $(PROTODOC)
 		--doc_opt=markdown,proto.md \
 		proto/*.proto
 
-
 $(PROTODOC):
 	go install -v github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@v1.5.1
+
+license-check:
+	@command -v go-license > /dev/null || go install github.com/palantir/go-license@v1.32.0
+	find . -type f -name '*.go' | grep -v '.pb.go\|.pb.gw.go\|mocks/' | xargs go-license --config=.github/license.yml --verify
+
+license-format:
+	@command -v go-license > /dev/null || go install github.com/palantir/go-license@v1.32.0
+	find . -type f -name '*.go' | grep -v '.pb.go\|.pb.gw.go\|mocks/' | xargs go-license --config=.github/license.yml
