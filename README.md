@@ -19,16 +19,17 @@
 This is an template for `golang` project, it has the following features:
 
 + An `Makefile` style for build、test，support docker
-+ Support addlicense headers
-+ Buildin grpc、grpc-gateway with example
++ Support custom license headers
++ Buildin grpc、grpc-gateway with example, proto-format、lint、doc enabled
 + Github template and action for PR、ISSUE and workflow
 + Go 1.21，with golangci-lint、mockgen and so on, and unittest is enabled
 + Codecov enabled
 
 ## How to use？
 
-+ First, create an repository with this template, and clone it
-+ Second, run `./hack/rename {xxx}` to new project name
-+ Third, follow [codecov](https://about.codecov.io/) to configration your `CODECOV_TOKEN`
++ 1: create an repository with this template, and clone it
++ 2: run `./hack/rename {xxx}` to new project name
++ 3: follow [codecov](https://about.codecov.io/) to configration your `CODECOV_TOKEN`
++ 4: modify `.github/license.yml` with your own LICENSE template
 
 Now, enjoy coding!
