@@ -27,10 +27,10 @@ This is an template for `golang` project, it has the following features:
 
 ## How to use？
 
-+ 1: create an repository with this template, and clone it
-+ 2: run `./hack/rename {xxx}` to new project name
-+ 3: follow [codecov](https://about.codecov.io/) to configration your `CODECOV_TOKEN`
-+ 4: modify `.github/license.yml` with your own LICENSE template
-+ 5: modify `.github/CODEOWNERS` with your own OWNERS
+1. create an repository with this template, and clone it
+2. run `./hack/rename {xxx}` to new project name
+3. follow [codecov](https://about.codecov.io/) to configration your `CODECOV_TOKEN`
+4. modify `.github/license.yml` with your own LICENSE template
+5. modify `.github/CODEOWNERS` with your own OWNERS
 
 Now, enjoy coding!
