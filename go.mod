@@ -1,6 +1,6 @@
 module github.com/lsytj0413/golang-project-template
 
-go 1.21
+go 1.22
 
 require (
 	github.com/golang/mock v1.6.0

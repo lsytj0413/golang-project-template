@@ -1,15 +1,15 @@
 run:
-  # concurrency: 4
   timeout: 5m
   issues-exit-code: 1
   tests: true
   modules-download-mode: readonly
-  skip-dirs:
-    - example
   allow-parallel-runners: false
 
 output:
-  format: colored-line-number
+  formats:
+    - format: colored-line-number
+      path: stdout
+  show-stats: true
 
 linters:
   enable:
@@ -96,3 +96,5 @@ issues:
   include:
     - "EXC0012"
     - "EXC0014"
+  exclude-dirs:
+    - "example"
